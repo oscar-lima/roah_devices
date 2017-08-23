@@ -13,8 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system thread)
 
-find_package(Qt4 REQUIRED QtCore QtGui)
-include(${QT_USE_FILE})
+find_package(Qt5Widgets REQUIRED)
 
 
 ################################################
@@ -60,6 +59,7 @@ CATKIN_DEPENDS message_runtime std_msgs std_srvs # roscpp
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${Qt5Widgets_INCLUDE_DIRS}
 )
 
 add_subdirectory(gen/)
@@ -67,6 +67,7 @@ add_dependencies(roah_devices_qt roah_devices_generate_messages_cpp)
 
 include_directories(
   ${INCLUDE_DIRS}
+  ${Qt5Widgets_INCLUDE_DIRS}
 )
 
 add_executable(roah_devices src/roah_devices.cpp)
